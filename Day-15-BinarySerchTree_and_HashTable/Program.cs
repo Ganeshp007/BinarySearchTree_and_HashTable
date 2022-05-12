@@ -4,8 +4,8 @@ using Day_15_BinarySerchTree_and_HashTable;
 Console.WriteLine("----- Binary_Search_Tree -----\n");
 
 BinarySearchTreeOps<int> binarySearchTree = new BinarySearchTreeOps<int>(56); //Root=56  
-binarySearchTree.Insert(30);
-binarySearchTree.Insert(70);
+
+binarySearchTree.InsertMultiItems(30,70,22,40,60,95,11,65,3,16,63,67);
 
 Console.WriteLine("\n>> Binary_Search_Tree :- ");
 binarySearchTree.Display();

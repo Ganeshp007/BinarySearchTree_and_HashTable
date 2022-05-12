@@ -54,6 +54,15 @@ namespace Day_15_BinarySerchTree_and_HashTable
             }
         }
 
+
+        public void InsertMultiItems(params T[] inputarray)
+        {
+            foreach (T item in inputarray)
+            {
+                Insert(item);
+            }
+        }
+
         public void Display()
         {
             if (this.leftTree != null)
