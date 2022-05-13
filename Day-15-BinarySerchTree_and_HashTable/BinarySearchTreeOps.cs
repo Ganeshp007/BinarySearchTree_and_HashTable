@@ -89,6 +89,34 @@ namespace Day_15_BinarySerchTree_and_HashTable
 
         }
 
+
+        public bool IfExists(T element, BinarySearchTreeOps<T> node)
+        {
+
+            if (node == null)
+            {
+                return false;
+            }
+            if (node.NodeData.Equals(element))
+            {
+                Console.WriteLine("\n> Serching for Element {0} in BST....", element);
+                Console.WriteLine("\n>> Element {0} is present in our BST ", node.NodeData);
+                result = true;
+            }
+
+            if (element.CompareTo(node.NodeData) < 0)
+            {
+                IfExists(element, node.leftTree);
+            }
+            if (element.CompareTo(node.NodeData) > 0)
+            {
+                IfExists(element, node.rightTree);
+            }
+
+            return result;
+        }
+
+
         public void Display()
         {
             if (this.leftTree != null)
