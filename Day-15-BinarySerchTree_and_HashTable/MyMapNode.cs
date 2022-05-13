@@ -39,6 +39,12 @@ namespace Day_15_BinarySerchTree_and_HashTable
             if (itemFound)
             {
                 linkedList.Remove(foundItem);
+                Console.WriteLine("\n>> {0} Keyvalue is removed from HashTable....\n", key);
+                
+            }
+            else
+            {
+                Console.WriteLine("\n>> {0} Keyvalue is not present in HashTable....\n", key);
             }
 
 
@@ -97,29 +103,33 @@ namespace Day_15_BinarySerchTree_and_HashTable
 
         }
 
-        public void GetFreq() // get the Freq of Repetation of Strings in our items array of size 16
+        public void RemoveWord() // get the Freq of Repetation of Strings in our items array of size 16
         {
-            MyMapNode<string, int> myMapNode = new MyMapNode<string, int>(19);
-            string[] words = { "Paranoids","are","not","paranoid","because","they","are","paranoid","but","because","they","keep","putting","themselves",
-                               "deliberately","into","paranoid","avoidable","situations" };
-            int count = 1;
-            foreach (string i in words)
+            MyMapNode<string, int> myMap = new MyMapNode<string, int>(10);
+            string[] paragraph1;
+            string input1 = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+            paragraph1 = input1.Split(' ');
+
+            int counts = 1;
+            foreach (string i in paragraph1)
             {
-                count = myMapNode.CheckHash(i);
-                if (count > 1)
+                counts = myMap.CheckHash(i);
+                if (counts > 1)
                 {
-                    myMapNode.Add(i, count);
+                    myMap.Add(i, counts);
                 }
                 else
                 {
-                    myMapNode.Add(i, 1);
+                    myMap.Add(i, 1);
                 }
             }
-
-            IEnumerable<string> uniqueItems = words.Distinct<string>();
-            foreach (var i in uniqueItems)
+            IEnumerable<string> unique = paragraph1.Distinct<string>();
+            Console.WriteLine("\nEnter the word which you want to remove in paragraph");
+            string removeWord = Console.ReadLine();
+            myMap.Remove(removeWord);
+            foreach (var i in unique)
             {
-                myMapNode.Display(i);
+                myMap.Display(i);
             }
         }
         
