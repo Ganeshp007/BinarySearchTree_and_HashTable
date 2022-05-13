@@ -99,32 +99,36 @@ namespace Day_15_BinarySerchTree_and_HashTable
 
         public void GetFreq() // get the Freq of Repetation of Strings in our items array of size 16
         {
-            MyMapNode<string, int> myMapNode = new MyMapNode<string, int>(19);
-            string[] words = { "Paranoids","are","not","paranoid","because","they","are","paranoid","but","because","they","keep","putting","themselves",
-                               "deliberately","into","paranoid","avoidable","situations" };
-            int count = 1;
-            foreach (string i in words)
+            MyMapNode<string, int> myMap = new MyMapNode<string, int>(10);
+            string[] Paragraph;
+            string input = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+            Paragraph = input.Split(' ');
+            //Given string input
+
+            int counts = 1;
+            foreach (string i in Paragraph)
             {
-                count = myMapNode.CheckHash(i);
-                if (count > 1)
+                counts = myMap.CheckHash(i);
+                if (counts > 1)
                 {
-                    myMapNode.Add(i, count);
+                    myMap.Add(i, counts);
                 }
                 else
                 {
-                    myMapNode.Add(i, 1);
+                    myMap.Add(i, 1);
                 }
             }
-
-            IEnumerable<string> uniqueItems = words.Distinct<string>();
-            foreach (var i in uniqueItems)
+            Console.WriteLine("\n>> Frequency of words in paragraph :-\n");
+            IEnumerable<string> distinct = Paragraph.Distinct<string>();
+            foreach (var i in distinct)
             {
-                myMapNode.Display(i);
+                myMap.Display(i);
             }
-        }
-        
 
-    public void Display(K key) //Extract all KeyValue pairs and display on console
+        }
+
+
+        public void Display(K key) //Extract all KeyValue pairs and display on console
         {
             int position = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> LinkedListofPosition = GetLinkedList(position);
