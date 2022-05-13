@@ -123,6 +123,7 @@ namespace Day_15_BinarySerchTree_and_HashTable
                     myMap.Add(i, 1);
                 }
             }
+
             IEnumerable<string> unique = paragraph1.Distinct<string>();
             Console.WriteLine("\nEnter the word which you want to remove in paragraph");
             string removeWord = Console.ReadLine();
@@ -131,10 +132,11 @@ namespace Day_15_BinarySerchTree_and_HashTable
             {
                 myMap.Display(i);
             }
-        }
-        
 
-    public void Display(K key) //Extract all KeyValue pairs and display on console
+        }
+
+
+        public void Display(K key) //Extract all KeyValue pairs and display on console
         {
             int position = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> LinkedListofPosition = GetLinkedList(position);

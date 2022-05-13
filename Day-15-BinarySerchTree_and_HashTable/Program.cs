@@ -4,7 +4,8 @@ using Day_15_BinarySerchTree_and_HashTable;
 
 Console.WriteLine("----- Hash table -----\n");
 
-MyMapNode<string, string> hash = new MyMapNode<string, string>(6);
+MyMapNode<string, int> hash = new MyMapNode<string, int>(10);
+
 //hash.Add("0", "To");
 //hash.Add("1", "be");
 //hash.Add("2", "or");
